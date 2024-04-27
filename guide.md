@@ -822,7 +822,7 @@ Let's go with the first option since we have millions in SOL. First, let's get
 the size of the old program account:
 
 ```shell
-solana program show --program-id C87Mkt2suddDsb6Y15hJyGQzu9itMhU7RGxTQw17mTm
+solana program show C87Mkt2suddDsb6Y15hJyGQzu9itMhU7RGxTQw17mTm
 ```
 
 You'll see the output in bytes:
@@ -1145,17 +1145,7 @@ export const program = new Program<Counter>(IDL, programId, {
   connection,
 });
 
-// To derive a PDA, we need:
-// - the seeds - think of this like an ID or key (in a key-value store)
-// - the program address of the program the PDA belongs to
 
-// This gives us the mintPDA that we'll reference when minting stuff
-export const [mintPDA] = PublicKey.findProgramAddressSync(
-  [Buffer.from("mint")],
-  program.programId,
-);
-
-// Similarly, derive a PDA for when we increment the counter, using "counter" as the seed
 export const [counterPDA] = PublicKey.findProgramAddressSync(
   [Buffer.from("counter")],
   program.programId,
@@ -1281,7 +1271,7 @@ code:
 ```tsx
 import { useState } from "react";
 import { useConnection, useWallet } from "@solana/wallet-adapter-react";
-import { program, mintPDA } from "../anchor/setup";
+import { program } from "../anchor/setup";
 
 export default function IncrementButton() {
   const { publicKey, sendTransaction } = useWallet();
