@@ -1,5 +1,5 @@
 # full-stack-solana-dev
-Guide is in `guide.md`. Can use a markdown viewer like HackMD. Pending review, will be published on Solana.com/docs
+View this guide on [Solana docs](https://solana.com/developers/guides/getstarted/full-stack-solana-development) or open up `guide.md` in a markdown viewer like HackMD. 
 
 ## How to use this guide
 1. Open guide.md in markdown viewer
